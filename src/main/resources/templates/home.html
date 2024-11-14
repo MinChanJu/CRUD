@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈</title>
+</head>
+<body>
+    <div>home</div>
+    <span>안녕하세요</span>
+    <span th:text="${session.user != null ? session.user.name : '유저 이름'}">유저 이름</span>
+    <ol>
+        <li><a href="/users">회원 목록</a></li>
+        <li><a href="/users/create">회원 가입</a></li>
+        <li><a href="/users/login">로그인</a></li>
+        <li><a href="/problems">문제 목록</a></li>
+    </ol>
+    
+    
+</body>
+</html>

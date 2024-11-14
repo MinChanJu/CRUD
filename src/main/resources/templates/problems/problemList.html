@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>문제 이름</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="problem : ${problems}">
+                <th th:text="${problem.id}"></th>
+                <th><a th:href="@{/problems/{id}(id=${problem.id})}" th:text="${problem.title}"></a></th>
+            </tr>
+        </tbody>
+    </table>
+    <div><a href="/problems/create">문제 추가</a></div>
+</body>
+</html>

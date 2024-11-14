@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div th:text="|제목 : ${problem.title}|"></div>
+    <div th:text="|설명 : ${problem.description}|"></div>
+    <div th:text="|입력 : ${problem.input}|"></div>
+    <div th:text="|출력 : ${problem.output}|"></div>
+    <form th:action="@{/problems/test/{id}(id=${problem.id})}" method="post">
+        <div>
+            <select name="lang" id="lang">
+                <option value="Python">Python</option>
+                <option value="JAVA">JAVA</option>
+                <option value="C">C</option>
+            </select>
+        </div>
+        <textarea name="code" id="code" style="width: 500px; height: 500px; color: blue;"></textarea>
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>
