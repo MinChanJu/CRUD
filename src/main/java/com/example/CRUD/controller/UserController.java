@@ -6,8 +6,11 @@ import com.example.CRUD.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -67,15 +70,15 @@ public class UserController {
         return "redirect:/users/login";
     }
 
-    @PostMapping("/users/update")
-    public String postMethodName(User user) {
+    @PutMapping("/users/update")
+    public String updateUser(User user) {
         userService.updateUserById(user);
         return "redirect:/users";
     }
     
 
-    @PostMapping("/users/delete")
-    public String deleteUser(long id) {
+    @DeleteMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable long id) {
         userService.deleteUserById(id);
         return "redirect:/users";
     }

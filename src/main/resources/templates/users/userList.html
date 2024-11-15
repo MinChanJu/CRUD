@@ -31,13 +31,18 @@
                 <th th:text="${user.userId}"></th>
                 <th th:text="${user.userPw}"></th>
                 <th>
-                    <form action="/users/delete" method="post">
-                        <input type="hidden" id="id" name="id" th:value="${user.id}">
+                    <form th:action="@{/users/delete/{id}(id=${user.id})}" class="DELETE Method" method="post">
+                        <!-- Spring HiddenHttpMethodFilter를 통해 DELETE 요청으로 변환 -->
+                        <input type="hidden" name="_method" value="delete">
+
                         <button type="submit">삭제</button>
                     </form>
                 </th>
                 <th>
-                    <form action="/users/update" method="post">
+                    <form action="/users/update" class="PUT Method" method="post">
+                        <!-- Spring HiddenHttpMethodFilter를 통해 PUT 요청으로 변환 -->
+                        <input type="hidden" name="_method" value="put">
+
                         <input type="hidden" id="id" name="id" th:value="${user.id}">
                         <div class="form-group">
                             <label for="name">이름</label>

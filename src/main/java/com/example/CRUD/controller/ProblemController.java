@@ -52,7 +52,7 @@ public class ProblemController {
     }
     
     @PostMapping("/problems/create")
-    public String postMethodName(Problem problemForm) {
+    public String createProblem(Problem problemForm) {
         Problem problem = new Problem();
         problem.setTitle(problemForm.getTitle());
         problem.setDescription(problemForm.getDescription());
